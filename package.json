@@ -1,0 +1,30 @@
+{
+  "name": "aaronandemberbe",
+  "version": "1.0.0",
+  "description": "Backend for A&E",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronGusa/aaronandemberBE.git"
+  },
+  "keywords": [
+    "backend",
+    "a&E"
+  ],
+  "author": "Aaron Gusa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronGusa/aaronandemberBE/issues"
+  },
+  "homepage": "https://github.com/AaronGusa/aaronandemberBE#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node": "^23.8.0",
+    "stripe": "^17.6.0"
+  }
+}
