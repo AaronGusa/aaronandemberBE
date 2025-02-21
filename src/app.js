@@ -8,7 +8,6 @@ const r = require('./routes/routes')
 // Middleware to parse JSON bodies
 app.use(express.json())
     .use(cors())
-    .use(bodyParser.json())
     .use('/', r);
 
 // Simple route for testing
