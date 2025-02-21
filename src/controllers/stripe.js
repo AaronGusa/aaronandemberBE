@@ -1,3 +1,4 @@
+const { stringify } = require('querystring');
 const { param } = require('../routes/stripeR');
 
 require('dotenv').config();
@@ -17,12 +18,13 @@ const getCustomers = async (req, res, next) => {
 
 const getCustomer = async (req, res, next) => {
     try {
-        const cid = new ObjectId(req.param.cid);
-        const customer = await stripe.customers.retrieve(cid);
+        console.log(req.param.cid);
+        const cid = stringify(req.param.cid);
+        const customer = await stripe.customers.retrieve(`'${cid}'`);
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(customer);
     } catch (err) {
-        res.status(400).json({ message: 'Error: ' + error });
+        res.status(400).json({ message: 'Error: ' + err });
     }
 }
 
