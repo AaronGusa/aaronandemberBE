@@ -4,7 +4,7 @@ const str_cont = require('../controllers/stripe');
 
 //Stripe GETS
 str_r.get('/', str_cont.getCustomers);
-str_r.get('/cus/cid:', str_cont.getCustomer);
+str_r.get('/:cid', str_cont.getCustomer);
 //Stripe Posts
 
 //Stripe Puts

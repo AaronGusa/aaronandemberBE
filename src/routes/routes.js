@@ -6,7 +6,7 @@ indx_r.use('/service', require('./stripeR'));
 indx_r.use('/', (req, res) => {
     let docData = {
         'Quick Links': [
-            {Services: 'http://localhost/service'}
+            {Services: 'https://aaronandemberbe.onrender.com/service/'}
         ]
     };
     res.json(docData);

@@ -18,9 +18,9 @@ const getCustomers = async (req, res, next) => {
 
 const getCustomer = async (req, res, next) => {
     try {
-        console.log(req.param.cid);
-        const cid = stringify(req.param.cid);
-        const customer = await stripe.customers.retrieve(`'${cid}'`);
+        const cid = req.params.cid;
+        console.log('Line 23: ' + cid);
+        const customer = await stripe.customers.retrieve(cid);
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(customer);
     } catch (err) {
