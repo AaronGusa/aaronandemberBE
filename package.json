@@ -22,9 +22,12 @@
   },
   "homepage": "https://github.com/AaronGusa/aaronandemberBE#readme",
   "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "node": "^23.8.0",
+    "nodemon": "^3.1.9",
     "stripe": "^17.6.0"
   }
 }
