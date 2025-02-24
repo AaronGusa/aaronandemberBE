@@ -5,10 +5,12 @@ async function proveFirebaseToken(req, res, next) {
     const token = req.headers.authorization?.split(' ')[1];
     console.log(token);
     if (!token) {
+        console.log('entered not token?')
       return res.status(401).send('Unauthorized');
     }
     try {
       const decodedToken = await admin.auth().verifyIdToken(token);
+      console.log(decodedToken);
       req.isAuthenticated = true;
       req.user = decodedToken;
       next();
