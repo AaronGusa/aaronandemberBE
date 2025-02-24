@@ -3,6 +3,7 @@ const admin = require('firebase-admin');
 // Middleware to verify Firebase ID token
 async function proveFirebaseToken(req, res, next) {
     const token = req.headers.authorization?.split(' ')[1];
+    console.log(token);
     if (!token) {
       return res.status(401).send('Unauthorized');
     }
