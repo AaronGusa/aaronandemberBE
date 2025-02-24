@@ -26,24 +26,6 @@ app.use(cors({
   credentials: true
 }));
 
-// Middleware to verify Firebase ID token
-async function authenticate(req, res, next) {
-  const token = req.headers.authorization?.split(' ')[1];
-  if (!token) {
-    return res.status(401).send('Unauthorized');
-  }
-  try {
-    const decodedToken = await admin.auth().verifyIdToken(token);
-    req.user = decodedToken;
-    next();
-  } catch (error) {
-    res.status(401).send('Invalid token');
-  }
-}
-
-// Apply the `authenticate` middleware to all routes in `r`
-app.use(authenticate);
-
 // Use routes defined in `r`
 app.use('/', r);
 

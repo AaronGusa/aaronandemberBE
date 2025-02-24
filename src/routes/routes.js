@@ -1,6 +1,7 @@
 const indx_r = require('express').Router();
+const proveFirebaseToken = require('../auth/auth');
 
-indx_r.use('/service', require('./stripeR'));
+indx_r.use('/service', proveFirebaseToken, require('./stripeR'));
 
 // Default route
 indx_r.use('/', (req, res) => {
