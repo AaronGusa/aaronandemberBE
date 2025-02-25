@@ -1,4 +1,4 @@
-require(dotenv).config();
+require('dotenv').config();
 const admin = require('firebase-admin');
 
 
@@ -17,10 +17,6 @@ admin.initializeApp({
     }),
   });
 
-
-admin.initializeApp({
-    credential: admin.credential.applicationDefault()
-  });
 
 // Middleware to verify Firebase ID token
 async function proveFirebaseToken(req, res, next) {
