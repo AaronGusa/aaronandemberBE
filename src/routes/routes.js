@@ -2,7 +2,7 @@ const indx_r = require('express').Router();
 const pft = require('../auth/auth');
 
 //indx_r.use('/service', pft.proveFirebaseToken, require('./stripeR'));
-indx_r.use('/service', proveFirebaseToken, (req, res, next) => {
+indx_r.use('/service', pft.proveFirebaseToken, (req, res, next) => {
     console.log('Middleware passed, accessing service route...');
     next();
 }, require('./stripeR'));
