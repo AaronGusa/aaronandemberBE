@@ -6,6 +6,7 @@ indx_r.use('/service', pft.proveFirebaseToken, (req, res, next) => {
     console.log('Middleware passed, accessing service route...');
     next();
 }, require('./stripeR'));
+indx_r.use('/contact', require('./contactR'));
 
 // Default route
 indx_r.use('/', (req, res) => {
