@@ -1,5 +1,5 @@
 const con_r = require('express').Router();
-const con_cont = require('../controller/contact');
+const con_cont = require('../controllers/contact');
 
 //Contact GETS
 
