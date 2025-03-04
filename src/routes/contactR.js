@@ -3,7 +3,11 @@ const con_cont = require('../controllers/contact');
 
 //Contact GETS
 
-//Contact PUTS
-con_r.get('/', con_cont.sendEmail);
+//Contact POST
+con_r.post('/', con_cont.sendEmail);
+
+//Contact PUT
+
+//Contact DEL
 
 module.exports = con_r;
