@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+require(dotenv).config();
 
 const sendEmail = async (req, res) => {
     const { name, companyName, subject, email, message } = req.body;
@@ -11,14 +12,14 @@ const sendEmail = async (req, res) => {
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-            user: 'air-ember@airandember.com', // Your Zoho Mail address
+            user: 'support@airandember.com', // Your Zoho Mail address
             pass: process.env.EM_PASS // Your Zoho Mail password from environment variable
         }
     });
 
     const mailOptions = {
         from: email,
-        to: 'air@airandember.com',
+        to: 'support@airandember.com',
         subject: subject,
         text: `Name: ${name}\nCompany: ${companyName}\nEmail: ${email}\nMessage: ${message}`
     };
