@@ -2,9 +2,9 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const sendEmail = async (req, res) => {
-    const { name, companyName, subject, email, message } = req.body;
+    const { name, companyName, subject, email, phone, message } = req.body;
     console.log(`We have an email from ${name}`);
-    console.log(`Email content: ${email}, ${subject}, ${message}`);
+    console.log(`Email content: ${phone} ${email}, ${subject}, ${message}`);
 
     // Create a transporter using Zoho Mail credentials
     const transporter = nodemailer.createTransport({
@@ -18,10 +18,11 @@ const sendEmail = async (req, res) => {
     });
 
     const mailOptions = {
-        from: email,
-        to: 'support@airandember.com',
+        from: 'support@airandember.com',
+        replyTo: email,
+        to: 'air@airandember.com',
         subject: subject,
-        text: `Name: ${name}\nCompany: ${companyName}\nEmail: ${email}\nMessage: ${message}`
+        text: `Name: ${name}\nCompany: ${companyName}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
