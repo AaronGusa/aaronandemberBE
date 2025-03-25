@@ -4,7 +4,7 @@ const cors = require('cors');
 const port = process.env.PORT || 3000;
 const routes = require('./src/routes/routes');
 const bodyParser = require('body-parser');
-const 
+ 
 
 const allowedOrigins = [
     'http://192.168.88.1:5500',
