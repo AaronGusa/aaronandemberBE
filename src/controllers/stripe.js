@@ -56,7 +56,7 @@ const handleWebhook = async (req, res) => {
     const { type, data } = event;
 
     try {
-        if (type === 'invoice.created') {
+        if (type ) {
             // Store invoice details in Firebase
             const invoice = data.object;
             // Example: Save invoice data to Firebase
