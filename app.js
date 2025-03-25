@@ -9,7 +9,8 @@ const bodyParser = require('body-parser');
 const allowedOrigins = [
     'http://192.168.88.1:5500',
     'http://192.168.86.42:5500', 
-    'https://airandember.com'
+    'https://airandember.com',
+    'https://stripe.com'
 ];
 
 // Middleware to parse JSON bodies
