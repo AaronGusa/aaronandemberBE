@@ -31,7 +31,8 @@ app.use(cors({
 // Use routes
 app.use('/', routes);
 
-app.use('/service/webhook', bodyParser.raw({ type: 'application/json' }));
+app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }));
+
 
 
 // Start the server
