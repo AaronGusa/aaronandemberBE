@@ -16,6 +16,14 @@ const allowedOrigins = [
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }), (req, res, next) => {
+    console.log('Raw Body Middleware Triggered');
+    console.log('Raw Body:', req.rawBody); // Should show raw data
+    console.log('Headers:', req.headers);
+    next();
+});
+
+
 // CORS config
 app.use(cors({
     origin: function (origin, callback) {
@@ -31,12 +39,6 @@ app.use(cors({
 
 
 // Use routes
-app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }), (req, res, next) => {
-    console.log('Raw Body Middleware Triggered');
-    console.log('Raw Body:', req.rawBody); // Should show raw data
-    console.log('Headers:', req.headers);
-    next();
-});
 
 
 
