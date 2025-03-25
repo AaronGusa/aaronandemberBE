@@ -37,6 +37,7 @@ const getInvoices = async (req, res, next) => {
 }
 
 const handleWebhook = async (req, res) => {
+    console.log('WebHook Initiated')
     const sig = req.headers['stripe-signature'];
     let event;
 
