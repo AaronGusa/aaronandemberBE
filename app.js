@@ -32,8 +32,9 @@ app.use(cors({
 
 // Use routes
 app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }), (req, res, next) => {
-    console.log('Received request at /stripeR/webhook ');
-    console.log(type);
+    console.log('Received request at /stripeR/webhook');
+    console.log('Raw Body:', req.rawBody); // Raw body received from Stripe
+    console.log('Headers:', req.headers); // Stripe headers including stripe-signature
     next();
 });
 
