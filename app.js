@@ -16,13 +16,17 @@ const allowedOrigins = [
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }), (req, res, next) => {
-    console.log('Raw Body Middleware Triggered');
-    console.log('Raw Body:', req.rawBody); // Should show raw data
-    console.log('Headers:', req.headers);
-    next();
+app.use('/stripeR/webhook', (req, res, next) => {
+    req.rawBody = '';
+    req.setEncoding('utf8');
+    req.on('data', (chunk) => {
+        req.rawBody += chunk;
+    });
+    req.on('end', () => {
+        next();
+    });
 });
-
+app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }));
 
 // CORS config
 app.use(cors({
