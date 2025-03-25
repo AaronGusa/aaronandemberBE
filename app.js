@@ -31,7 +31,8 @@ app.use(cors({
 
 // Use routes
 app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }), (req, res, next) => {
-    console.log('Received request at /stripeR/webhook ' + type);
+    console.log('Received request at /stripeR/webhook ');
+    console.log(type);
     next();
 });
 
