@@ -1,5 +1,7 @@
 const str_r = require('express').Router();
 const str_cont = require('../controllers/stripe');
+const bodyParser = require('body-parser');
+
 
 
 //Stripe GETS
