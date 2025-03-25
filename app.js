@@ -29,9 +29,11 @@ app.use(cors({
 
 
 // Use routes
+app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }));
+
+
 app.use('/', routes);
 
-app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }));
 
 
 
