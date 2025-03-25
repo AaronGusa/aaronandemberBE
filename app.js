@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const port = process.env.PORT || 3000;
 const routes = require('./src/routes/routes');
+const bodyParser = require('body-parser');
 
 const allowedOrigins = [
     'http://192.168.88.1:5500',
@@ -25,8 +26,13 @@ app.use(cors({
     credentials: true
 }));
 
+
+
 // Use routes
 app.use('/', routes);
+
+app.use('/service/webhook', bodyParser.raw({ type: 'application/json' }));
+
 
 // Start the server
 app.listen(port, () => {

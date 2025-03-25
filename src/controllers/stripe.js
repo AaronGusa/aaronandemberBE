@@ -36,6 +36,42 @@ const getInvoices = async (req, res, next) => {
 
 }
 
+const handleWebhook = async (req, res) => {
+    const sig = req.headers['stripe-signature'];
+    let event;
+
+    try {
+        // Verify webhook signature to ensure the request is from Stripe
+        event = stripe.webhooks.constructEvent(
+            req.rawBody, // Use raw body for verification
+            sig,
+            process.env.WEBH_SCRT // The secret key for webhook signature validation
+        );
+    } catch (err) {
+        console.error('Webhook signature verification failed:', err.message);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    // Process the event
+    const { type, data } = event;
+
+    try {
+        if (type === 'invoice.created') {
+            // Store invoice details in Firebase
+            const invoice = data.object;
+            // Example: Save invoice data to Firebase
+            // await firebaseAdmin.database().ref(`/invoices/${invoice.id}`).set(invoice);
+            console.log('Invoice created:', invoice);
+        }
+        // Add more event types as needed
+        res.status(200).send('Event processed');
+    } catch (err) {
+        console.error('Error processing event:', err.message);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
 // Stripe Posts
 
 // Stripe Puts
@@ -45,9 +81,9 @@ const getInvoices = async (req, res, next) => {
 module.exports = {
     getCustomers,
     getCustomer,
-    getInvoices
+    getInvoices,
+    handleWebhook
 }
-
 
 
 

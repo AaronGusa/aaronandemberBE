@@ -6,10 +6,20 @@ const str_cont = require('../controllers/stripe');
 str_r.get('/', str_cont.getCustomers);
 str_r.get('/:cid', str_cont.getCustomer);
 str_r.get('/invoices/:cid', str_cont.getInvoices);
+
+    //Webhooks GETS
+// str_r.get('/hookey/:cid', str_cont.getWebHCustomer);
+// str_r.get('/hookey/:cid/invoices', str_cont.getWebHInvoices) 
+
 //Stripe Posts
+str_r.post('/webhook', str_cont.handleWebhook);
 
 //Stripe Puts
 
 //Stripe Del
+
+
+
+
 
 module.exports = str_r;
