@@ -22,6 +22,7 @@ app.use('/stripeR/webhook', (req, res, next) => {
     req.setEncoding('utf8');
     req.on('data', (chunk) => {
         req.rawBody += chunk;
+        console.log(req.rawBody)
     });
     req.on('end', () => {
         next();
