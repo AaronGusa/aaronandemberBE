@@ -28,7 +28,7 @@ app.use(express.json());
 //         next();
 //     });
 // });
-app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }));
+// app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }));
 
 // CORS config
 app.use(cors({
