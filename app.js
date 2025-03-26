@@ -17,6 +17,7 @@ const allowedOrigins = [
 app.use(express.json());
 
 app.use('/stripeR/webhook', (req, res, next) => {
+    console.log('Entered in Webhook')
     req.rawBody = '';
     req.setEncoding('utf8');
     req.on('data', (chunk) => {
@@ -43,15 +44,12 @@ app.use(cors({
 
 
 // Use routes
-
-
-
 app.use('/', routes);
 
 
-
-
 // Start the server
+console.log('Server is starting...');
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
