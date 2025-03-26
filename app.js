@@ -34,8 +34,6 @@ app.use('/', routes);
 
 
 // Start the server
-console.log('Server is starting...');
-
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
