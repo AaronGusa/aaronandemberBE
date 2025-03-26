@@ -21,11 +21,13 @@ str_r.get('/invoices/:cid', str_cont.getInvoices);
 //     next();
 // }, str_cont.handleWebhook);
 
-str_r.post('/webhook', (req, res, next) => {
-    console.log('Route Middleware Triggered');
-    console.log('Raw Body in Route:', req.rawBody);
-    next();
-}, str_cont.handleWebhook);
+str_r.post('/webhook', 
+//     (req, res, next) => {
+//     console.log('Route Middleware Triggered');
+//     console.log('Raw Body in Route:', req.rawBody);
+//     next();
+// }, 
+str_cont.handleWebhook);
 
 
 //Stripe Puts
