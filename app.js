@@ -16,18 +16,18 @@ const allowedOrigins = [
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-app.use('/stripeR/webhook', (req, res, next) => {
-    console.log('Entered in Webhook')
-    req.rawBody = '';
-    req.setEncoding('utf8');
-    req.on('data', (chunk) => {
-        req.rawBody += chunk;
-        console.log(req.rawBody)
-    });
-    req.on('end', () => {
-        next();
-    });
-});
+// app.use('/stripeR/webhook', (req, res, next) => {
+//     console.log('Entered in Webhook')
+//     req.rawBody = '';
+//     req.setEncoding('utf8');
+//     req.on('data', (chunk) => {
+//         req.rawBody += chunk;
+//         console.log(req.rawBody)
+//     });
+//     req.on('end', () => {
+//         next();
+//     });
+// });
 app.use('/stripeR/webhook', bodyParser.raw({ type: 'application/json' }));
 
 // CORS config
